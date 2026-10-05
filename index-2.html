@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Mgmt+2 - Modern Management Plus Two student project website">
+  <title>Mgmt+2 | Student Project</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --border: #e2e8f0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 80px 0;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
+        radial-gradient(circle at bottom right, #e0e7ff 0, transparent 35%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: var(--primary-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 24px auto 30px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Sections */
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* About */
+    .about {
+      background: #0f172a;
+      color: white;
+    }
+
+    .about-content {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about p {
+      color: #cbd5e1;
+      margin-top: 15px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      background: white;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 750px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 72vh;
+        padding: 60px 0;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Mgmt<span>+2</span></a>
+
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="badge">Management +2 Student Project</span>
+
+        <h1>Learn. Build. Grow.</h1>
+
+        <p>
+          Welcome to Mgmt+2 — a modern student project website
+          designed to organize learning resources, subjects and useful
+          academic information in one place.
+        </p>
+
+        <div class="buttons">
+          <a href="#subjects" class="btn btn-primary">Explore Subjects</a>
+          <a href="#about" class="btn btn-secondary">About Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="subjects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Subjects</h2>
+          <p>Explore the main areas of Management +2.</p>
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="icon">📊</div>
+            <h3>Accountancy</h3>
+            <p>
+              Learn accounting concepts, journal entries, ledgers,
+              financial statements and practical problems.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📈</div>
+            <h3>Economics</h3>
+            <p>
+              Understand demand, supply, production, markets,
+              macroeconomics and other economic concepts.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">💼</div>
+            <h3>Business Studies</h3>
+            <p>
+              Explore management, business organization,
+              entrepreneurship and important business concepts.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-content">
+          <h2>About Mgmt+2</h2>
+          <p>
+            Mgmt+2 is a student-focused project created to present
+            academic information through a clean, modern and responsive
+            website. This project can be expanded with notes, notices,
+            resources, assignments and other useful features.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Mgmt+2. Student Project.
+    </div>
+  </footer>
+
+</body>
+</html>
